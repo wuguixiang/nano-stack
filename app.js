@@ -7,8 +7,8 @@ const app = express();
 app.set("view engine", "ejs");
 
 //this is a route
-app.get("/", (req, res) => {
-  res.render('home'); //rendering html template on the app page
+app.get("/", (req, res, next) => {
+  res.render('home', {page:'Home', menuId:'home'}); //rendering html template on the app page
 });
 
 const port = process.env.PORT || 3000;
