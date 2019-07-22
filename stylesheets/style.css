@@ -21,3 +21,17 @@
 .active>a {
     color: #1abc9c !important;;
   }
+
+  .bgimage {
+    width:100%;
+    height:500px;
+    background: url('https://wallpaperaccess.com/full/126246.');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-attachment: fixed;
+  }
+  .bgimage h5 {
+    color:white;
+    text-shadow:2px 2px #333;
+}
