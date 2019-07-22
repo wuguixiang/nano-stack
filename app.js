@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 //this is a route
 
 
-app.get('/', function(req, res, next){
+app.get('/', function(req, res){
   res.sendFile(__dirname + '/home.ejs');
 });
 
