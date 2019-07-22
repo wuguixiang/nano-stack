@@ -5,6 +5,7 @@ const app = express();
 
 //to use html and token
 app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, 'public')));
 
 //this is a route
 app.get("/", (req, res) => {
