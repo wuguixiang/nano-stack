@@ -2,6 +2,8 @@ const express = require('express');
 //require a module
 const app = express();
 //just use a short variable
+var path = require('path')
+
 
 //to use html and token
 app.set("view engine", "ejs");
