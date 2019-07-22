@@ -14,12 +14,12 @@ app.get("/", (req, res) => {
   res.render('home', {page:'Home', menuId:'home'}); //rendering html template on the app page
 });
 
-app.get("/about", (req, res) => {
+app.get("/contact", (req, res) => {
   res.render('contact', {page:'Contact', menuId:'contact'}); //rendering html template on the app page
 });
 
 
-app.get("/contact", (req, res) => {
+app.get("/about", (req, res) => {
   res.render('about', {page:'About', menuId:'about'}); //rendering html template on the app page
 });
 
