@@ -11,6 +11,10 @@ app.get("/", (req, res) => {
   res.render('home', {page:'Home', menuId:'home'}); //rendering html template on the app page
 });
 
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/home.ejs');
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log('This app is running on port' + port);
