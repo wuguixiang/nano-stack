@@ -32,7 +32,11 @@ section.bgimage {
     background-attachment: fixed;
 }
 
-section.bgimage h5 {
+section.bgimage h2 {
     color:white;
     text-shadow:2px 2px #333;
+}
+
+a {
+  color:#BDBDBD;
 }
