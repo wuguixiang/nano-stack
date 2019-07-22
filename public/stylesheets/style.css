@@ -18,6 +18,15 @@
   .navbar-nav  li a:hover {
       color: #1abc9c !important;
   }
+
+  .navbar-logo {
+    float: left;
+    height: 50px;
+    /* padding: 15px 15px; */
+    font-size: 18px;
+    line-height: 20px;
+  }
+  
 .active>a {
     color: #1abc9c !important;;
   }
