@@ -18,7 +18,10 @@
     <a href="http://scripteden.com/download/eden-ui/" target="_blank" class="btn-social btn-email"><i class="fa fa-envelope"></i></a>
 </div>
 </div>
-
+<form method="POST" action="/submit-form">
+  <input type="text" name="username" />
+  <input type="submit" />
+</form>
     <section class="Material-contact-section section-padding section-dark">
       <div class="container">
           <div class="row">
@@ -29,7 +32,7 @@
 
               <!-- contact form -->
               <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
-                  <form class="shake" method="post" action="contact"  id="contactForm" name="contact-form" data-toggle="validator">
+                  <form class="shake" method="post" action="/contact"  id="contactForm" name="contact-form" data-toggle="validator">
                       <!-- Name -->
                       <div class="form-group label-floating">
                         <label class="control-label" for="name">Name</label>

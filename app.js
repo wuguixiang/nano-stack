@@ -14,6 +14,12 @@ app.get("/", (req, res, next) => {
   res.render('home', {page:'Home', menuId:'home'}); //rendering html template on the app page
 });
 
+app.post('/submit-form', (req, res) => {
+  const username = req.body.username
+  //...
+  res.end()
+})
+
 app.post("/contact", (req, res, next) => {
   res.status(200);
 });
