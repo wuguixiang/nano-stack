@@ -3,7 +3,14 @@ const express = require('express');
 const app = express();
 //just use a short variable
 
+const port = process.env.PORT || 3000;
 const MongoClient = require('mongodb').MongoClient;
+
+
+const CONNECTION_URL = "mongodb+srv://wendyggx:Givelove148!@cluster0-alfjy.mongodb.net/test?retryWrites=true&w=majority";
+const DATABASE_NAME = "newdb"; //you can change the database name
+var database, collection;
+
 var path = require('path')
 
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => {
@@ -28,9 +35,6 @@ app.use(express.urlencoded({ extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
-const CONNECTION_URL = "mongodb+srv://wendyggx:Givelove148!@cluster0-alfjy.mongodb.net/test?retryWrites=true&w=majority";
-const DATABASE_NAME = "newdb"; //you can change the database name
-var database, collection;
 
 //this is a route
 app.get("/", (req, res, next) => {
