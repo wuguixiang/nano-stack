@@ -15,9 +15,7 @@ app.get("/", (req, res, next) => {
 });
 
 app.post('/submit-form', (req, res) => {
-  const username = req.body.username
-  //...
-  res.end()
+  res.status(200);
 })
 
 app.post("/contact", (req, res, next) => {
