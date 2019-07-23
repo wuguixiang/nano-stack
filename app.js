@@ -14,10 +14,6 @@ app.get("/", (req, res, next) => {
   res.render('home', {page:'Home', menuId:'home'}); //rendering html template on the app page
 });
 
-app.post('/submit-form', (req, res) => {
-  res.send('hello world')
-});
-
 app.post("/contact", (req, res, next) => {
   res.send('hello world')
 });
