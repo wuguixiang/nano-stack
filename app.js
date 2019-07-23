@@ -7,7 +7,7 @@ const DATABASE_NAME = "newdb"; //you can change the database name
 var database, collection;
 const https = require('https');
 const querystring = require('querystring');
-const cookieParser = require('mongodb').MongoClient;
+const cookieParser = require('cookie-parser');
 var path = require('path');
 
 
@@ -65,7 +65,7 @@ app.post("/submit", (req, res, next) => {
 
     var options = {
     	hostname: 'forms.hubspot.com',
-    	path: '/uploads/form/v2/Y4753304/3801c81f-9729-4c92-9e15-b6f767cf249d',
+    	path: '/uploads/form/v2/4753304/3801c81f-9729-4c92-9e15-b6f767cf249d',
     	method: 'POST',
     	headers: {
     		'Content-Type': 'application/x-www-form-urlencoded',
