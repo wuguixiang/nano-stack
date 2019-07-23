@@ -10,16 +10,16 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
 //this is a route
-app.get("/", (req, res) => {
+app.get("/", (req, res, next) => {
   res.render('home', {page:'Home', menuId:'home'}); //rendering html template on the app page
 });
 
-app.get("/contact", (req, res) => {
+app.get("/contact", (req, res, next) => {
   res.render('contact', {page:'Contact', menuId:'contact'}); //rendering html template on the app page
 });
 
 
-app.get("/about", (req, res) => {
+app.get("/about", (req, res, next) => {
   res.render('about', {page:'About', menuId:'about'}); //rendering html template on the app page
 });
 
