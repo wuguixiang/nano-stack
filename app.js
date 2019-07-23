@@ -15,11 +15,11 @@ app.get("/", (req, res, next) => {
 });
 
 app.post('/submit-form', (req, res) => {
-  res.status(200);
-})
+  res.send('hello world')
+});
 
 app.post("/contact", (req, res, next) => {
-  res.status(200);
+  res.send('hello world')
 });
 
 app.get("/contact", (req, res, next) => {
