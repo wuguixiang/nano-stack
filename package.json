@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.4",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
-    "nodemon": "^1.19.1"
+    "mongodb": "^3.3.0-beta2",
+    "nodemon": "^1.19.1",
+    "querystring": "^0.2.0"
   }
 }
