@@ -11,7 +11,15 @@ const CONNECTION_URL = "mongodb+srv://wendyggx:Givelove148!@cluster0-alfjy.mongo
 const DATABASE_NAME = "newdb"; //you can change the database name
 var database, collection;
 
-var path = require('path')
+var path = require('path');
+
+//use in all path
+//for form submission
+app.use(express.urlencoded({ extended: true}));
+
+//to use html and token
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, 'public')));
 
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => {
   if (error) throw error;
@@ -25,15 +33,6 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
     console.log('This app is running on port' + port);
   });
 });
-
-//use in all path
-//for form submission
-app.use(express.urlencoded({ extended: true}));
-
-
-//to use html and token
-app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, 'public')));
 
 
 //this is a route
