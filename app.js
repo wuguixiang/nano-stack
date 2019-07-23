@@ -23,7 +23,7 @@ app.get("/about", (req, res) => {
   res.render('about', {page:'About', menuId:'about'}); //rendering html template on the app page
 });
 
-app.post('/', function(req, res){
+app.post("/contact", function(req, res){
   res.status(200);
 });
 
