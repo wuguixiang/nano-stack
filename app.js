@@ -23,6 +23,9 @@ app.get("/about", (req, res) => {
   res.render('about', {page:'About', menuId:'about'}); //rendering html template on the app page
 });
 
+app.post('/', function(req, res){
+  res.status(200);
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
