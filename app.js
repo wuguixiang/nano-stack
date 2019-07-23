@@ -14,6 +14,10 @@ app.get("/", (req, res, next) => {
   res.render('home', {page:'Home', menuId:'home'}); //rendering html template on the app page
 });
 
+app.post("/contact", (req, res, next) => {
+  res.status(200);
+});
+
 app.get("/contact", (req, res, next) => {
   res.render('contact', {page:'Contact', menuId:'contact'}); //rendering html template on the app page
 });
@@ -21,10 +25,6 @@ app.get("/contact", (req, res, next) => {
 
 app.get("/about", (req, res, next) => {
   res.render('about', {page:'About', menuId:'about'}); //rendering html template on the app page
-});
-
-app.post("/contact", function(req, res){
-  res.status(200);
 });
 
 const port = process.env.PORT || 3000;
