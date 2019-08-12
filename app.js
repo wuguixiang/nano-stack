@@ -1,6 +1,4 @@
 require('dotenv').config();
-const split = require('split-string');
-
 const express = require('express'); //require a module
 const app = express(); //just use a short variable
 const port = process.env.PORT || 3000;
@@ -16,11 +14,12 @@ const returnedCompanies = [];
 const request = require('request-promise-native');
 const NodeCache = require('node-cache');
 const session = require('express-session');
+const split = require('split-string');
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 // Supports a list of scopes as a string delimited by ',' or ' ' or '%20'
-const SCOPES = (process.env.SCOPE.split('/ |, ?|%20/') || ['contacts']).join(' ');
+const SCOPES = process.env.SCOPE.split('/ |, ?|%20/').join(' ');
 
 const REDIRECT_URI = `http://localhost:${port}/oauth-callback`;
 //const REDIRECT_URI = `https://wendyggx.herokuapp.com/oauth-callback`;
