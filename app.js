@@ -1,4 +1,6 @@
 require('dotenv').config();
+const split = require('split-string');
+
 const express = require('express'); //require a module
 const app = express(); //just use a short variable
 const port = process.env.PORT || 3000;
