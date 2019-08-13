@@ -14,7 +14,6 @@ const returnedCompanies = [];
 const request = require('request-promise-native');
 const NodeCache = require('node-cache');
 const session = require('express-session');
-const split = require('split-string');
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
