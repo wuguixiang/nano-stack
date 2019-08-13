@@ -19,17 +19,17 @@ const split = require('split-string');
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 // Supports a list of scopes as a string delimited by ',' or ' ' or '%20'
-const SCOPES = (process.env.SCOPE.split(/ |, ?|%20/) || ['contacts']).join(' ');
+//const SCOPES = (process.env.SCOPE.split(/ |, ?|%20/) || ['contacts']).join(' ');
 
 const REDIRECT_URI = `http://localhost:${port}/oauth-callback`;
 //const REDIRECT_URI = `https://wendyggx.herokuapp.com/oauth-callback`;
 const refreshTokenStore = {};
 const accessTokenCache = new NodeCache({ deleteOnExpire: true });
-const authUrl =
-  'https://app.hubspot.com/oauth/authorize' +
-  `?client_id=${encodeURIComponent(CLIENT_ID)}` + // app's client ID
-  `&scope=${encodeURIComponent(SCOPES)}` + // scopes being requested by the app
-  `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`; // where to send the user after the consent page
+//const authUrl =
+  ///'https://app.hubspot.com/oauth/authorize' +
+  //`?client_id=${encodeURIComponent(CLIENT_ID)}` + // app's client ID
+  //`&scope=${encodeURIComponent(SCOPES)}` + // scopes being requested by the app
+  //`&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`; // where to send the user after the consent page
 
 
 // Use a session to keep track of client ID
