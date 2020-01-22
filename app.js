@@ -177,6 +177,7 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
             });
             if (parsedBody['hasMore']) {
                 getCompanies(parsedBody['offset'])
+                console.log(offset);
             } else {
                 //print out all companies
                 console.log(counter)
