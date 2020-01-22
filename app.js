@@ -150,7 +150,7 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
 
   app.post("/getCompanies", (req, res, next) => {
     var request = require("request")
-    const API_KEY = 'aa0c900c-72e4-4659-883a-6ea71cc5b5b0'
+    const API_KEY = '{{hapikey}}'
     const limit = 250;
     var counter = 0;
 
@@ -161,9 +161,9 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
             offsetParam = `offset=${offset}`;
         }
         const hapikeyParam = `hapikey=${API_KEY}`
-        const paramsString = `?limit=${limit}&${hapikeyParam}&${offsetParam}`;
+        const paramsString = `?limit=${limit}&${hapikeyParam}&${offsetParam}&properties=description`;
 
-        const finalUrl = `https://api.hubapi.com/engagements/v1/engagements/paged${paramsString}`
+        const finalUrl = `https://api.hubapi.com/companies/v2/companies/paged${paramsString}`
         console.log(finalUrl)
         request(finalUrl, (error, response, body) => {
             if (error) {
@@ -171,13 +171,12 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
                 throw new Error
             }
             const parsedBody = JSON.parse(body)
-            parsedBody.results.forEach(company => {
+            parsedBody.companies.forEach(company => {
                 returnedCompanies.push(company);
                 counter++;
             });
-            if (parsedBody['hasMore']) {
+            if (parsedBody['has-more']) {
                 getCompanies(parsedBody['offset'])
-                console.log(offset);
             } else {
                 //print out all companies
                 console.log(counter)
