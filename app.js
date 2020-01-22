@@ -150,8 +150,9 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
 
   app.post("/getCompanies", (req, res, next) => {
     var request = require("request")
-    const API_KEY = '5fd14d5a-a2d9-494d-95f1-cb0adef79782'
-    const count = 5;
+    const API_KEY = 'aa0c900c-72e4-4659-883a-6ea71cc5b5b0'
+    const limit = 250;
+    var counter = 0;
 
     function getCompanies(offset) {
         if (typeof offset == 'undefined') {
@@ -160,9 +161,9 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
             offsetParam = `offset=${offset}`;
         }
         const hapikeyParam = `hapikey=${API_KEY}`
-        const paramsString = `?count=${count}&${hapikeyParam}&${offsetParam}&properties=description`;
+        const paramsString = `?limit=${limit}&${hapikeyParam}&${offsetParam}`;
 
-        const finalUrl = `https://api.hubapi.com/companies/v2/companies/paged${paramsString}`
+        const finalUrl = `https://api.hubapi.com/engagements/v1/engagements/paged${paramsString}`
         console.log(finalUrl)
         request(finalUrl, (error, response, body) => {
             if (error) {
@@ -170,21 +171,20 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
                 throw new Error
             }
             const parsedBody = JSON.parse(body)
-            parsedBody.companies.forEach(company => {
+            parsedBody.results.forEach(company => {
                 returnedCompanies.push(company);
+                counter++;
             });
-            if (parsedBody['has-more']) {
+            if (parsedBody['hasMore']) {
                 getCompanies(parsedBody['offset'])
             } else {
                 //print out all companies
-                console.log(returnedCompanies)
+                console.log(counter)
             }
         })
     };
-
     getCompanies();
     res.redirect('/getCompanies');
-
   });
 
 
