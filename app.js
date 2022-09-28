@@ -18,6 +18,7 @@ const session = require('express-session');
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 // Supports a list of scopes as a string delimited by ',' or ' ' or '%20'
+const SCOPES = (process.env.SCOPE.split(/ |, ?|%20/) || ['contacts']).join(' ');
 
 const REDIRECT_URI = `https://wendyggx.herokuapp.com/oauth-callback`;
 //const REDIRECT_URI = `https://wendyggx.herokuapp.com/oauth-callback`;
