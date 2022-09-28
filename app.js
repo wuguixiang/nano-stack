@@ -243,7 +243,7 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
     request.write(postData);
     request.end();
 
-    res.redirect('home');
+    res.redirect('/');
 });
 
 app.get("/contact", (req, res, next) => {
