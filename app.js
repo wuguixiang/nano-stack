@@ -20,7 +20,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 // Supports a list of scopes as a string delimited by ',' or ' ' or '%20'
 const SCOPES = (process.env.SCOPE.split(/ |, ?|%20/) || ['crm.objects.contacts.write']).join(' ');
 
-const REDIRECT_URI = `https://wendyggx.herokuapp.com/oauth-callback`;
+const REDIRECT_URI = `https://wendyggx.cyclic.com/oauth-callback`;
 //const REDIRECT_URI = `https://wendyggx.herokuapp.com/oauth-callback`;
 const refreshTokenStore = {};
 const accessTokenCache = new NodeCache({ deleteOnExpire: true });
@@ -216,8 +216,8 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
 
     // set the post options, changing out the HUB ID and FORM GUID variables.
     var options = {
-    	hostname: 'forms.hubspot.com',
-    	path: '/uploads/form/v2/4753304/3801c81f-9729-4c92-9e15-b6f767cf249d',
+    	hostname: 'api.hsforms.com',
+    	path: '/submissions/v3/integration/submit/9381732/21cf36dc-c665-4656-912c-8a338a09253b',
     	method: 'POST',
     	headers: {
     		'Content-Type': 'application/x-www-form-urlencoded',
