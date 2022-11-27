@@ -1,9 +1,8 @@
-require('dotenv').config();
 const express = require('express'); //require a module
 const app = express(); //just use a short variable
 const port = process.env.PORT || 3000;
 const MongoClient = require('mongodb').MongoClient;
-const CONNECTION_URL = "mongodb+srv://wendyggx:Givelove148!@cluster0-alfjy.mongodb.net/test?retryWrites=true&w=majority";
+const CONNECTION_URL = "mongodb+srv://wendyggx:test123@cluster0-alfjy.mongodb.net/test?retryWrites=true&w=majority";
 const DATABASE_NAME = "newdb"; //you can change the database name
 var database, collection;
 const https = require('https');
