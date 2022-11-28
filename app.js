@@ -255,7 +255,7 @@ app.get("/about", (req, res, next) => {
     res.render('about', {page:'About', menuId:'about'}); //rendering html template on the app page
   } else {
     console.log("we are here2")
-    res.render('home', {page:'Home', menuId:'home'});
+    res.redirect('/');
   }
 });
 
@@ -289,7 +289,7 @@ app.post('/about', async (req, res) => {
     console.log("we are here3")
 
 } else {
-  res.redirect('about');
+  res.redirect('/');
 }
 });
 
