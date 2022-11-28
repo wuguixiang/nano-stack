@@ -252,8 +252,10 @@ app.get("/contact", (req, res, next) => {
 
 app.get("/about", (req, res, next) => {
   if (isAuthorized(req.sessionID)) {
+    console.log("we are here")
     res.render('about', {page:'About', menuId:'about'}); //rendering html template on the app page
   } else {
+    console.log("we are here2")
     res.render('home', {page:'Home', menuId:'home'});
   }
 });
@@ -262,6 +264,7 @@ app.post('/about', async (req, res) => {
   if (isAuthorized(req.sessionID)) {
     var searchInput = req.body.searchinput; // Store submitted form input into variable
     var url = 'https://api.hubapi.com/contacts/v1/search/query?q=' + searchInput;
+    console.log(url)
 
     const contactSearch = async (accessToken) => {
      try {
@@ -279,8 +282,11 @@ app.post('/about', async (req, res) => {
     const searchResults = await contactSearch(accessToken);
     var contactResults = JSON.stringify(searchResults.contacts);
     var parsedResults = JSON.parse(contactResults);
+    console.log(parsedResults)
 
     res.render('searchresults', {contactsdata: parsedResults});
+    console.log("we are here3")
+
 } else {
   res.redirect('about');
 }
