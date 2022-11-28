@@ -261,6 +261,8 @@ app.get("/about", (req, res, next) => {
 });
 
 app.post('/about', async (req, res) => {
+  console.log(req.sessionID)
+
   if (isAuthorized(req.sessionID)) {
     var searchInput = req.body.searchinput; // Store submitted form input into variable
     var url = 'https://api.hubapi.com/contacts/v1/search/query?q=' + searchInput;
