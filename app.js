@@ -146,51 +146,6 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true}, (error,client) => 
     return refreshTokenStore[userId] ? true : false;
   };
 
-  app.post("/getCompanies", (req, res, next) => {
-    var request = require("request")
-    const API_KEY = 'fbfd32bb-0653-45e2-bc83-7a35053f1467'
-    const limit = 100;
-    var counter = 0;
-
-    function getCompanies(offset) {
-        if (typeof offset == 'undefined') {
-            offsetParam = null;
-        } else {
-            offsetParam = `offset=${offset}`;
-        }
-        const hapikeyParam = `hapikey=${API_KEY}`
-        const paramsString = `?count=${limit}&${hapikeyParam}&${offsetParam}`;
-
-        const finalUrl = `https://api.hubapi.com/engagements/v1/engagements/recent/modified${paramsString}`
-        console.log(finalUrl)
-        request(finalUrl, (error, response, body) => {
-            if (error) {
-                console.log('error', error)
-                throw new Error
-            }
-            const parsedBody = JSON.parse(body)
-            parsedBody.results.forEach(company => {
-                returnedCompanies.push(company);
-                counter++;
-            });
-            if (parsedBody['hasMore']) {
-                getCompanies(parsedBody['offset'])
-            } else {
-                //print out all companies
-                console.log(counter)
-            }
-        })
-    };
-    getCompanies();
-    res.redirect('/getCompanies');
-  });
-
-
-    app.get('/getCompanies', function(req, res){
-      res.send(JSON.stringify(returnedCompanies));
-    //res.send(String(existingNotifications2.length));
-    });
-
   app.post("/submit", (req, res, next) => {
     //storing a submission into the database
     collection.insertOne(req.body, (err,results) => {
@@ -249,7 +204,7 @@ app.get("/contact", (req, res, next) => {
 });
 
 
-app.get("/about", (req, res, next) => {
+app.get("/about", (req, res) => {
   if (isAuthorized(req.sessionID)) {
     console.log("we are here")
     res.render('about', {page:'About', menuId:'about'}); //rendering html template on the app page
