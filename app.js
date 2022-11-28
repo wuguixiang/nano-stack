@@ -29,7 +29,6 @@ const authUrl =
   `&scope=${encodeURIComponent(SCOPES)}` + // scopes being requested by the app
   `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`; // where to send the user after the consent page
 
-
 // Use a session to keep track of client ID
 app.use(session({
   secret: Math.random().toString(36).substring(2),
